@@ -10,7 +10,7 @@ public:
     std::size_t key;
     T data;
     int height;
-    AVLNode(std::size_t _key = 0, T _data = 0, AVLNode<T>* _left = NULL, AVLNode<T>* _right = NULL, int _height = 1) : left(_left), right(_right), key(_key), data(_data), height(_height) {}
+    AVLNode(std::size_t _key = 0, T _data = T(), AVLNode<T>* _left = NULL, AVLNode<T>* _right = NULL, int _height = 1) : left(_left), right(_right), key(_key), data(_data), height(_height) {}
 };
 
 template<typename T> class AVLTree
@@ -102,7 +102,7 @@ public:
                     }
                     else
                     {
-                        AVLNode<T>* tmp = root->left;
+                        AVLNode<T>* tmp = root->right;
                         while (tmp->left != NULL)
                             tmp = tmp->left;
                         root->key = tmp->key;
